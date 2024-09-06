@@ -4,7 +4,7 @@ import fs from "fs";
 // add food Item
 
 const addFood = async (req, res) => {
-  let image_filename = `${req.file.originalname}`;
+  let image_filename = `${req.file.filename}`;
 
   const food = new foodModel({
     name: req.body.name,
@@ -22,4 +22,16 @@ const addFood = async (req, res) => {
   }
 };
 
-export { addFood };
+// all food list
+
+const listFood = async (req, res) => {
+  try {
+    const foods = await foodModel.find({});
+    res.json({ success: true, data: foods });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
+
+export { addFood, listFood };
