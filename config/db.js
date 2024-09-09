@@ -7,3 +7,5 @@ export const connectDB = async () => {
     )
     .then(() => console.log("MongoDB connected"));
 };
+
+//mongodb+srv://wlaurente7:pyIn1NQrzgb1Dqdb@cluster0.ybsj8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
